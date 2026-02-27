@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-# Create your views here.
+@api_view(['GET'])
+def health(request):
+    return Response({"status": "UP"})
+
+@api_view(['GET'])
+def hello(request):
+    return Response({"message": "Hello, World!"})
+
+@api_view(['GET'])
+def version(request):
+    return Response({"version": "1.0.0"})
